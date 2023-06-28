@@ -27,7 +27,7 @@ glass_to_glass_ros
 
 #+NAME: description
 #+BEGIN_SRC text :exports none :noweb yes
-nil
+ROS 2 packages to measure glass to glass latency.
 #+END_SRC
 
 #+NAME: ros-distribution
