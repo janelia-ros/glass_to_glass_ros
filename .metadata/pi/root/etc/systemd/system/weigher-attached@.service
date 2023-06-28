@@ -1,0 +1,10 @@
+[Unit]
+Description=Weigher attached
+After=docker.service
+
+[Service]
+User=weigher
+Group=weigher
+WorkingDirectory=~
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/local/bin/find_device_then_run.py

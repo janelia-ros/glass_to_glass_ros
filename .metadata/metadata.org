@@ -1,0 +1,1292 @@
+#+EXPORT_FILE_NAME: ../README.md
+#+OPTIONS: toc:1 |:t ^:nil tags:nil
+
+# Place warning at the top of the exported file
+#+BEGIN_EXAMPLE
+<!-- This file is generated automatically from metadata -->
+<!-- File edits may be overwritten! -->
+#+END_EXAMPLE
+
+* Project Specific Variables                                       :noexport:
+
+#+NAME: ros-package-names
+#+BEGIN_SRC text :exports none :noweb yes
+glass_to_glass
+glass_to_glass_interfaces
+#+END_SRC
+
+#+NAME: repository-name
+#+BEGIN_SRC text :exports none :noweb yes
+glass_to_glass_ros
+#+END_SRC
+
+#+NAME: version
+#+BEGIN_SRC text :exports none :noweb yes
+1.0.0
+#+END_SRC
+
+#+NAME: description
+#+BEGIN_SRC text :exports none :noweb yes
+nil
+#+END_SRC
+
+#+NAME: ros-distribution
+#+BEGIN_SRC text :exports none :noweb yes
+humble
+#+END_SRC
+
+# Place multiple python packages on one line separated by spaces
+#+NAME: python-dependency-list
+#+BEGIN_SRC text :exports none :noweb yes
+loadstar_sensors_interface
+#+END_SRC
+
+# Place multiple apt packages on one line separated by spaces
+#+NAME: pi-apt-dependency-list
+#+BEGIN_SRC text :exports none :noweb yes
+python3-filelock python3-docker python3-click
+#+END_SRC
+
+#+NAME: references
+#+BEGIN_SRC text :exports none :noweb yes
+https://github.com/janelia-pypi/loadstar_sensors_interface_python
+#+END_SRC
+
+#+NAME: creation-date
+#+BEGIN_SRC text :exports none :noweb yes
+2023-6-28
+#+END_SRC
+
+#+NAME: weigher-package
+#+BEGIN_SRC text :exports none :noweb yes
+weigher
+#+END_SRC
+
+#+NAME: weigher-node-name
+#+BEGIN_SRC text :exports none :noweb yes
+weigher
+#+END_SRC
+
+#+NAME: weigher-executable
+#+BEGIN_SRC text :exports none :noweb yes
+weigher
+#+END_SRC
+
+#+NAME: weigher-launch-file
+#+BEGIN_SRC text :exports none :noweb yes
+weigher_launch.py
+#+END_SRC
+
+#+NAME: weigher-messages
+#+BEGIN_SRC text :exports none :noweb yes
+Weight.msg
+WeightArray.msg
+#+END_SRC
+
+#+NAME: weight-message
+#+BEGIN_SRC text :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+
+# Single weight reading.
+builtin_interfaces/Time stamp
+float64 weight # Measurement of the Weight in grams.
+#+END_SRC
+
+#+NAME: weight-array-message
+#+BEGIN_SRC text :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+
+# Multiple weight readings.
+Weight[] array
+#+END_SRC
+
+#+NAME: weigher-topics
+#+BEGIN_SRC text :exports none :noweb yes
+/<<weigher-node-name>>/weight
+/<<weigher-node-name>>/weight_thresholded
+/<<weigher-node-name>>/weight_array
+/<<weigher-node-name>>/weight_array_thresholded
+#+END_SRC
+
+#+NAME: weigher-service-files
+#+BEGIN_SRC text :exports none :noweb yes
+Tare.srv
+#+END_SRC
+
+#+NAME: tare-service-file
+#+BEGIN_SRC text :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+
+---
+builtin_interfaces/Time stamp
+bool success
+#+END_SRC
+
+#+NAME: weigher-services
+#+BEGIN_SRC text :exports none :noweb yes
+/<<weigher-node-name>>/tare
+#+END_SRC
+
+#+NAME: docker-image-name
+#+BEGIN_SRC text :exports none :noweb yes
+weigher:<<ros-distribution>>
+#+END_SRC
+
+* General and Derived Variables                                    :noexport:
+
+#+NAME: release-month-day
+#+BEGIN_SRC emacs-lisp :exports none :noweb yes
+(format-time-string "%m-%d")
+#+END_SRC
+
+#+NAME: release-year
+#+BEGIN_SRC emacs-lisp :exports none :noweb ye
+(format-time-string "%Y")
+#+END_SRC
+
+#+NAME: release-date
+#+BEGIN_SRC text :exports none :noweb yes
+<<release-year()>>-<<release-month-day()>>
+#+END_SRC
+
+#+NAME: license
+#+BEGIN_SRC text :exports none :noweb yes
+BSD-3-Clause
+#+END_SRC
+
+#+NAME: guix-license
+#+BEGIN_SRC text :exports none :noweb yes
+license:bsd-3
+#+END_SRC
+
+#+NAME: license-files
+#+BEGIN_SRC text :exports none :noweb yes
+LICENSE
+#+END_SRC
+
+#+NAME: repository-organization
+#+BEGIN_SRC text :exports none :noweb yes
+RatCity-Habitat
+#+END_SRC
+
+#+NAME: forge
+#+BEGIN_SRC text :exports none :noweb yes
+github.com
+#+END_SRC
+
+#+NAME: repository-url
+#+BEGIN_SRC text :exports none :noweb yes
+https://<<forge>>/<<repository-organization>>/<<repository-name>>
+#+END_SRC
+
+#+NAME: git-clone-url-ssh
+#+BEGIN_SRC text :exports none :noweb yes
+git@<<forge>>:<<repository-organization>>/<<repository-name>>.git
+#+END_SRC
+
+#+NAME: git-clone-url-https
+#+BEGIN_SRC text :exports none :noweb yes
+<<repository-url>>.git
+#+END_SRC
+
+#+NAME: author-given-name
+#+BEGIN_SRC text :exports none :noweb yes
+Peter
+#+END_SRC
+
+#+NAME: author-family-name
+#+BEGIN_SRC text :exports none :noweb yes
+Polidoro
+#+END_SRC
+
+#+NAME: author
+#+BEGIN_SRC text :exports none :noweb yes
+<<author-given-name>> <<author-family-name>>
+#+END_SRC
+
+#+NAME: email
+#+BEGIN_SRC text :exports none :noweb yes
+peter@polidoro.io
+#+END_SRC
+
+#+NAME: affiliation
+#+BEGIN_SRC text :exports none :noweb yes
+Howard Hughes Medical Institute
+#+END_SRC
+
+#+NAME: copyright
+#+BEGIN_SRC text :exports none :noweb yes
+<<release-year()>> <<affiliation>>
+#+END_SRC
+
+#+NAME: programming-language
+#+BEGIN_SRC text :exports none :noweb yes
+Python 3
+#+END_SRC
+
+#+NAME: ros-workspace-path
+#+BEGIN_SRC text :exports none :noweb yes
+~/ros2_ws
+#+END_SRC
+
+#+NAME: virtualenv-path
+#+BEGIN_SRC text :exports none :noweb yes
+.venv
+#+END_SRC
+
+* About
+
+#+BEGIN_SRC markdown :noweb yes
+- ROS Package Names:
+  - <<ros-package-names>>
+- ROS Distribution: <<ros-distribution>>
+- Description: <<description>>
+- Version: <<version>>
+- Weigher Package: <<weigher-package>>
+- Weigher Node Name: <<weigher-node-name>>
+- Weigher Launch File: <<weigher-launch-file>>
+- Weigher Messages:
+  - <<weigher-messages>>
+- Weigher Topics:
+  - <<weigher-topics>>
+- Weigher Service Files:
+  - <<weigher-service-files>>
+- Weigher Services:
+  - <<weigher-services>>
+- Docker Image Name: <<docker-image-name>>
+- Release Date: <<release-date>>
+- Creation Date: <<creation-date>>
+- License: <<license>>
+- URL: <<repository-url>>
+- Author: <<author>>
+- Email: <<email>>
+- Copyright: <<copyright>>
+- References:
+  - <<references>>
+- Python Dependency List: <<python-dependency-list>>
+#+END_SRC
+
+* Usage
+
+** Publisher
+
+- Connect weigh scale to Raspberry Pi USB port.
+- Connect Raspberry Pi to power and Ethernet.
+
+Scale will be tared on power up and automatically begin publishing weight messages.
+
+** Subscriber
+
+On a computer connected to the same network as the Raspberry Pi, either use
+Docker or install ROS 2 to subscribe to weight messages.
+
+*** Docker
+
+#+BEGIN_SRC sh :noweb yes
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 topic list
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 topic echo /<<weigher-node-name>>/weight
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 topic echo /<<weigher-node-name>>/weight_thresholded
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 topic echo /<<weigher-node-name>>/weight_array
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 topic echo /<<weigher-node-name>>/weight_array_thresholded
+#+END_SRC
+
+*** ROS 2 on Ubuntu
+
+#+BEGIN_SRC sh :noweb yes
+source <<ros-workspace-path>>/install/setup.bash
+ros2 topic list
+ros2 topic echo <<weigher-topics>>
+#+END_SRC
+
+** Services
+
+On a computer connected to the same network as the Raspberry Pi, either use
+Docker or install ROS 2 to use weigher services.
+
+*** Docker
+
+#+BEGIN_SRC sh :noweb yes
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 service list
+docker run -it --net=host --pid=host <<docker-image-name>> ros2 service call /<<weigher-node-name>>/tare weigher_interfaces/srv/Tare
+#+END_SRC
+
+*** ROS 2 on Ubuntu
+
+#+BEGIN_SRC sh :noweb yes
+source <<ros-workspace-path>>/install/setup.bash
+ros2 service list
+ros2 service call /<<weigher-node-name>>/tare weigher_interfaces/srv/Tare
+#+END_SRC
+
+** Connect to Raspberry Pi for development and monitoring
+
+*** SSH into Raspberry Pi
+
+#+BEGIN_SRC sh :noweb yes
+ssh weigher@weigher.local
+#+END_SRC
+
+*** Web Console
+
+[[https://weigher.lan:9090/]]
+
+- username: weigher
+- password:
+
+* Messages
+
+** Weight.msg
+
+#+BEGIN_SRC text :noweb yes
+<<weight-message>>
+#+END_SRC
+
+** WeightArray.msg
+
+#+BEGIN_SRC text :noweb yes
+<<weight-array-message>>
+#+END_SRC
+
+* Topics
+
+** weight
+
+Send all messages from the digital scale one at a time along with a timestamp
+for that measurement.
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic echo /<<weigher-node-name>>/weight
+---
+stamp:
+  sec: 1676470173
+  nanosec: 765260627
+weight: 0.13607771100000002
+---
+stamp:
+  sec: 1676470173
+  nanosec: 883177140
+weight: 0.0
+---
+stamp:
+  sec: 1676470174
+  nanosec: 11527425
+weight: 0.04535923700000001
+---
+stamp:
+  sec: 1676470174
+  nanosec: 176475007
+weight: 0.18143694800000004
+---
+#+END_SRC
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic hz /<<weigher-node-name>>/weight
+average rate: 574.719
+	min: 0.000s max: 0.038s std dev: 0.00568s window: 2338
+average rate: 576.536
+	min: 0.000s max: 0.038s std dev: 0.00566s window: 2922
+#+END_SRC
+
+** weight_thresholded
+
+Send some messages from the digital scale one at a time along with a timestamp
+for that measurement, if the weight value exceeds a threshold. The threshold
+value is set with the threshold parameter.
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic echo /<<weigher-node-name>>/weight_thresholded
+---
+stamp:
+  sec: 1676470255
+  nanosec: 932870887
+weight: 520.8601184710001
+---
+stamp:
+  sec: 1676470256
+  nanosec: 19947998
+weight: 504.39471544000014
+---
+stamp:
+  sec: 1676470256
+  nanosec: 161346684
+weight: 499.8134325030001
+---
+stamp:
+  sec: 1676470256
+  nanosec: 301352968
+weight: 498.5887331040001
+---
+#+END_SRC
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic hz /<<weigher-node-name>>/weight_thresholded
+average rate: 503.230
+	min: 0.000s max: 0.054s std dev: 0.00695s window: 5102
+average rate: 503.906
+	min: 0.000s max: 0.054s std dev: 0.00697s window: 5613
+#+END_SRC
+
+** weight_array
+
+Send an array of Weight messages to increase the size and decrease the frequency
+of messages published on this topic. The maximum array length is set by the
+weight_array_length_max parameter.
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic echo /<<weigher-node-name>>/weight_array
+---
+array:
+- stamp:
+    sec: 1676473446
+    nanosec: 920160731
+  weight: 2.0411656650000003
+- stamp:
+    sec: 1676473446
+    nanosec: 921633371
+  weight: 2.0411656650000003
+- stamp:
+    sec: 1676473446
+    nanosec: 922349652
+  weight: 2.0865249020000003
+- stamp:
+    sec: 1676473446
+    nanosec: 922925743
+  weight: 2.0865249020000003
+- '...'
+---
+#+END_SRC
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic hz /<<weigher-node-name>>/weight_array
+average rate: 0.287
+	min: 3.460s max: 3.495s std dev: 0.01312s window: 4
+average rate: 0.288
+	min: 3.454s max: 3.495s std dev: 0.01571s window: 5
+#+END_SRC
+
+** weight_array_thresholded
+
+Send an array of Weight messages to increase the size and decrease the frequency
+of messages published on this topic. The maximum array length is set by the
+weight_array_length_max parameter.
+
+Only include weight messages in the array if the weight value exceeds a
+threshold. The threshold value is set with the threshold parameter.
+
+Do not send empty arrays.
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic echo /<<weigher-node-name>>/weight_array_thresholded
+---
+array:
+- stamp:
+    sec: 1676473988
+    nanosec: 201336549
+  weight: 491.467332895
+- stamp:
+    sec: 1676473988
+    nanosec: 202358047
+  weight: 491.467332895
+- stamp:
+    sec: 1676473988
+    nanosec: 203483274
+  weight: 491.467332895
+- stamp:
+    sec: 1676473988
+    nanosec: 204520182
+  weight: 491.467332895
+- '...'
+---
+#+END_SRC
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 topic hz /<<weigher-node-name>>/weight_array_thresholded
+average rate: 0.251
+	min: 3.933s max: 4.048s std dev: 0.04806s window: 4
+average rate: 0.251
+	min: 3.933s max: 4.048s std dev: 0.04406s window: 5
+#+END_SRC
+
+* Service Files
+
+** Tare.srv
+
+#+BEGIN_SRC text :noweb yes
+<<tare-service-file>>
+#+END_SRC
+
+* Services
+
+** tare
+
+#+BEGIN_SRC text :noweb yes
+$ ros2 service call /weigher/tare weigher_interfaces/srv/Tare
+requester: making request: weigher_interfaces.srv.Tare_Request()
+
+response:
+weigher_interfaces.srv.Tare_Response(stamp=builtin_interfaces.msg.Time(sec=1676492636, nanosec=617772030), success=True)
+#+END_SRC
+
+* Setup
+
+** Subscriber
+
+*** Docker
+
+**** Install Docker
+
+   [[https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository]]
+
+**** Clone this repository
+
+#+BEGIN_SRC sh :noweb yes
+git clone <<git-clone-url-https>>
+#+END_SRC
+
+**** Make Docker image
+
+#+BEGIN_SRC sh :noweb yes
+cd <<repository-name>>
+docker build -f .metadata/docker/Dockerfile -t <<docker-image-name>> .
+# or
+make -f .metadata/Makefile docker-image
+#+END_SRC
+
+*** ROS 2 on Ubuntu
+
+**** Install ROS 2
+
+#+BEGIN_SRC text :noweb yes
+https://docs.ros.org/en/<<ros-distribution>>/Installation/Ubuntu-Install-Debians.html
+#+END_SRC
+
+**** Create ROS 2 Workspace and clone this repository
+
+#+BEGIN_SRC sh :noweb yes
+mkdir -p <<ros-workspace-path>>/src && \
+cd <<ros-workspace-path>>/src && \
+git clone <<git-clone-url-https>>
+#+END_SRC
+
+**** Setup Python virtualenv
+
+#+BEGIN_SRC sh :noweb yes
+sudo apt install python3-venv
+cd <<ros-workspace-path>>
+make -f src/<<repository-name>>/.metadata/Makefile virtualenv
+#+END_SRC
+
+**** Build ROS packages
+
+***** Source the ROS underlay and activate the Python virtualenv and build ROS packages
+
+#+BEGIN_SRC sh :noweb yes
+# build may finish with stderr warnings about deprecated setup.py install
+# if using Python 3.10 or higher
+cd <<ros-workspace-path>> && \
+make -f src/<<repository-name>>/.metadata/Makefile ros-build
+#+END_SRC
+
+** Publisher
+
+*** Raspberry Pi
+
+**** Setup Raspberry Pi
+
+[[https://github.com/janelia-experimental-technology/raspberrypi_setup]]
+
+- username: weigher
+- hostname: weigher
+
+**** SSH into Raspberry Pi
+
+#+BEGIN_SRC sh :noweb yes
+ssh weigher@weigher.local
+#+END_SRC
+
+**** Web Console
+
+[[https://weigher.lan:9090/]]
+
+**** Clone Repository
+
+#+BEGIN_SRC sh :noweb yes
+cd ~ && \
+git clone <<git-clone-url-ssh>>
+#+END_SRC
+
+**** Add deploy ssh key to Github Repository
+
+#+BEGIN_SRC sh :noweb yes
+cat .ssh/id_ed25519.pub
+#+END_SRC
+
+**** Install make for metadata commands
+
+#+BEGIN_SRC sh :noweb yes
+sudo apt install make
+#+END_SRC
+
+**** Docker image
+
+#+BEGIN_SRC sh :noweb yes
+cd ~/<<repository-name>> && \
+make -f .metadata/Makefile docker-image
+#+END_SRC
+
+**** Pi Setup
+
+#+BEGIN_SRC sh :noweb yes
+cd ~/<<repository-name>> && \
+make -f .metadata/Makefile pi-setup
+sudo reboot
+#+END_SRC
+
+**** Check docker and systemd service
+
+#+BEGIN_SRC sh :noweb yes
+systemctl status docker
+systemctl status weigher-attached@00.service
+systemd-analyze plot > boot_analysis.svg
+docker container list
+#+END_SRC
+
+* Development
+
+** Docker
+
+*** Run Docker container
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile docker-container
+#+END_SRC
+
+*** Run Docker container with serial port access
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile docker-container-port
+#+END_SRC
+
+*** Run Docker container and start publishing weight messages
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile docker-publish-weight
+#+END_SRC
+
+*** Run Docker container and echo weight messages
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile docker-echo-weight-array
+make -f .metadata/Makefile docker-echo-weight-array-thresholded
+#+END_SRC
+
+*** Run Docker container and tare scale
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile docker-tare
+#+END_SRC
+
+*** Stop all Docker containers
+
+#+BEGIN_SRC sh :noweb yes
+docker stop $(docker ps -aq)
+#+END_SRC
+
+*** Find running container Name
+
+#+BEGIN_SRC sh :noweb yes
+docker ps
+#+END_SRC
+
+*** Run bash commands in running container
+
+#+BEGIN_SRC sh :noweb yes
+docker exec -it container-name bash
+#+END_SRC
+
+** Ubuntu
+
+*** Build
+
+***** Source the ROS underlay and activate the Python virtualenv and build ROS packages
+
+#+BEGIN_SRC sh :noweb yes
+# build may finish with stderr warnings about deprecated setup.py install
+# if using Python 3.10 or higher
+cd <<ros-workspace-path>> && \
+make -f src/<<repository-name>>/.metadata/Makefile ros-build
+#+END_SRC
+
+*** Run
+
+**** Source the ROS underlay and overlay and activate Python virtualenv and run the weigher node
+
+***** Launch file
+
+#+BEGIN_SRC sh :noweb yes
+source <<ros-workspace-path>>/src/<<repository-name>>/.metadata/setup.bash && \
+source <<ros-workspace-path>>/install/setup.bash && \
+ros2 launch <<weigher-package>> <<weigher-launch-file>>
+#+END_SRC
+
+***** ROS Run
+
+#+BEGIN_SRC sh :noweb yes
+source <<ros-workspace-path>>/src/<<repository-name>>/.metadata/setup.bash && \
+source <<ros-workspace-path>>/install/setup.bash && \
+ros2 run <<weigher-package>> <<weigher-executable>>
+#+END_SRC
+
+**** Echo the weigher topics
+
+#+BEGIN_SRC sh :noweb yes
+# Open a new termial
+source <<ros-workspace-path>>/install/setup.bash
+ros2 topic echo <<weigher-topics>>
+#+END_SRC
+
+** Raspberry Pi
+
+*** Update
+
+#+BEGIN_SRC sh :noweb yes
+cd ~/weigher_ros
+git pull
+make -f .metadata/Makefile docker-image
+make -f .metadata/Makefile pi-setup
+sudo reboot
+#+END_SRC
+
+** Metadata
+
+*** Install Guix
+
+[[https://guix.gnu.org/manual/en/html_node/Binary-Installation.html][Install Guix]]
+
+*** Clone Repository
+
+#+BEGIN_SRC sh :noweb yes
+git clone <<git-clone-url-ssh>>
+#+END_SRC
+
+*** Edit metadata.org
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile metadata-edits
+#+END_SRC
+
+*** Tangle metadata.org
+
+#+BEGIN_SRC sh :noweb yes
+make -f .metadata/Makefile metadata
+#+END_SRC
+
+* Tangled Files                                                    :noexport:
+
+#+BEGIN_SRC scheme :tangle guix/channels.scm :exports none :noweb yes
+;; This file is generated automatically from metadata
+;; File edits may be overwritten!
+(list (channel
+        (name 'guix)
+        (url "https://git.savannah.gnu.org/git/guix.git")
+        (branch "master")
+        (commit
+          "a3c6959de63c6dd91271ed5d1f15e0a7d75dee92")
+        (introduction
+          (make-channel-introduction
+            "9edb3f66fd807b096b48283debdcddccfea34bad"
+            (openpgp-fingerprint
+              "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))
+#+END_SRC
+
+#+BEGIN_SRC scheme :tangle guix/manifest.scm :exports none :noweb yes
+;; This file is generated automatically from metadata
+;; File edits may be overwritten!
+(specifications->manifest
+ '("coreutils"
+   "make"
+   "bash"
+   "git"
+   "python"
+   "python-pip"
+   "python-virtualenv"
+   "emacs"
+   "emacs-org"
+   "emacs-ox-gfm"
+   "imagemagick"
+   "inkscape"))
+#+END_SRC
+
+#+BEGIN_SRC text :tangle .alias :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+alias ,make=make\ -f\ .metadata/Makefile
+#+END_SRC
+
+#+BEGIN_SRC text :tangle Makefile :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+
+MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+MAKEFILE_DIR := $(notdir $(patsubst %/,%,$(dir $(MAKEFILE_PATH))))
+GUIX-TIME-MACHINE = guix time-machine -C $(MAKEFILE_DIR)/guix/channels.scm
+GUIX-SHELL = $(GUIX-TIME-MACHINE) -- shell -m $(MAKEFILE_DIR)/guix/manifest.scm
+CONTAINER = --container --preserve='^DISPLAY$$' --preserve='^TERM$$'
+GUIX-CONTAINER = $(GUIX-SHELL) $(CONTAINER)
+VENV-SHELL = rm -rf <<virtualenv-path>> && mkdir <<virtualenv-path>> && python3 -m venv <<virtualenv-path>> && source <<virtualenv-path>>/bin/activate
+DOCKER-IMAGE = docker build -f $(MAKEFILE_DIR)/docker/Dockerfile -t <<docker-image-name>> .
+DOCKER-IMAGE-DEBUG = docker build -f $(MAKEFILE_DIR)/docker/Dockerfile --no-cache --progress=plain -t <<docker-image-name>> .
+DOCKER-CONTAINER = docker run -it --net=host --pid=host <<docker-image-name>>
+
+.PHONY: guix-container
+guix-container:
+	$(GUIX-CONTAINER)
+
+.PHONY: requirements.txt
+requirements.txt:
+	$(GUIX-CONTAINER) --network -- sh -c "$(VENV-SHELL) &&\
+	pip install <<python-dependency-list>> &&\
+	pip freeze --local > requirements.txt &&\
+	deactivate &&\
+	rm -rf <<virtualenv-path>>"
+
+.PHONY: docker-image
+docker-image:
+	$(DOCKER-IMAGE)
+
+.PHONY: docker-image-debug
+docker-image-debug:
+	$(DOCKER-IMAGE-DEBUG)
+
+.PHONY: docker-container
+docker-container:
+	$(DOCKER-CONTAINER) bash
+
+.PHONY: metadata-edits
+metadata-edits:
+	$(GUIX-CONTAINER) -- sh -c "emacs -q --no-site-file --no-site-lisp --no-splash -l $(MAKEFILE_DIR)/emacs/init.el --file $(MAKEFILE_DIR)/metadata.org"
+
+.PHONY: metadata
+metadata: requirements.txt
+	$(GUIX-CONTAINER) -- sh -c "emacs --batch -Q  -l $(MAKEFILE_DIR)/emacs/init.el --eval '(process-org \"$(MAKEFILE_DIR)/metadata.org\")'"
+
+.PHONY: virtualenv
+virtualenv:
+	rm -rf <<virtualenv-path>>;\
+	python3 -m venv <<virtualenv-path>>;\
+	touch <<virtualenv-path>>/COLCON_IGNORE;\
+	source <<virtualenv-path>>/bin/activate;\
+	pip install -r src/<<repository-name>>/requirements.txt
+
+.PHONY: ros-build
+ros-build:
+	source src/<<repository-name>>/.metadata/setup.bash;\
+	colcon build --symlink-install
+
+.PHONY: pi-apt-dependencies
+pi-apt-dependencies:
+	sudo apt install -y <<pi-apt-dependency-list>>;\
+
+.PHONY: pi-setup
+pi-setup: pi-apt-dependencies
+	python3 .metadata/pi/pi_setup.py install;\
+	sudo chmod +x /usr/local/bin/find_device_then_run.py;\
+
+PORT = /dev/ttyUSB0
+DOCKER-CONTAINER-PORT = docker run -it --net=host --pid=host --device=$(PORT) <<docker-image-name>>
+
+.PHONY: docker-container-port
+docker-container-port:
+	$(DOCKER-CONTAINER-PORT) bash
+
+.PHONY: docker-publish-weight
+docker-publish-weight:
+	$(DOCKER-CONTAINER-PORT) ros2 launch <<weigher-package>> <<weigher-launch-file>>
+
+.PHONY: docker-echo-weight-array
+docker-echo-weight-array:
+	$(DOCKER-CONTAINER) ros2 topic echo /<<weigher-node-name>>/weight_array
+
+.PHONY: docker-echo-weight-array-thresholded
+docker-echo-weight-array-thresholded:
+	$(DOCKER-CONTAINER) ros2 topic echo /<<weigher-node-name>>/weight_array_thresholded
+
+.PHONY: docker-tare
+docker-tare:
+	$(DOCKER-CONTAINER) ros2 service call /<<weigher-node-name>>/tare weigher_interfaces/srv/Tare
+#+END_SRC
+
+#+BEGIN_SRC scheme :tangle emacs/init.el :exports none :noweb yes
+;; This file is generated automatically from metadata
+;; File edits may be overwritten!
+(require 'org)
+(require 'ox-org)
+
+(eval-after-load "org"
+  '(require 'ox-gfm nil t))
+
+(setq make-backup-files nil)
+(setq org-confirm-babel-evaluate nil)
+
+(setq python-indent-guess-indent-offset t)
+(setq python-indent-guess-indent-offset-verbose nil)
+
+(defun tangle-org (org-file)
+  "Tangle org file"
+  (unless (string= "org" (file-name-extension org-file))
+    (error "INFILE must be an org file."))
+  (org-babel-tangle-file org-file))
+
+(defun export-org-to-markdown (org-file)
+  "Export org file to gfm file"
+  (unless (string= "org" (file-name-extension org-file))
+    (error "INFILE must be an org file."))
+  (let ((org-file-buffer (find-file-noselect org-file)))
+    (with-current-buffer org-file-buffer
+      (org-open-file (org-gfm-export-to-markdown)))))
+
+(defun process-org (org-file)
+  "Tangle and export org file"
+  (progn (tangle-org org-file)
+         (export-org-to-markdown org-file)))
+
+
+(setq enable-local-variables nil)
+(setq tangle-external-files t)
+#+END_SRC
+
+#+BEGIN_SRC text :tangle setup.bash :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+cd <<ros-workspace-path>>
+source /opt/ros/<<ros-distribution>>/setup.bash
+source <<virtualenv-path>>/bin/activate
+cd <<virtualenv-path>>/lib/*/site-packages
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+cd <<ros-workspace-path>>
+#+END_SRC
+
+#+BEGIN_SRC scheme :tangle docker/Dockerfile :exports none :noweb yes
+ARG FROM_IMAGE=ros:<<ros-distribution>>
+ARG OVERLAY_WS=/opt/ros/overlay_ws
+
+# multi-stage for caching
+FROM $FROM_IMAGE AS cacher
+
+# copy overlay source
+ARG OVERLAY_WS
+WORKDIR $OVERLAY_WS/src
+COPY . .
+
+# copy manifests for caching
+WORKDIR /opt
+RUN mkdir -p /tmp/opt && \
+    find ./ -name "package.xml" | \
+      xargs cp --parents -t /tmp/opt && \
+    find ./ -name "COLCON_IGNORE" | \
+      xargs cp --parents -t /tmp/opt || true
+
+# multi-stage for building
+FROM $FROM_IMAGE AS builder
+
+# install overlay dependencies
+ARG OVERLAY_WS
+WORKDIR $OVERLAY_WS
+COPY --from=cacher /tmp/$OVERLAY_WS/src ./src
+RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
+    apt-get update && \
+    apt-get install -y \
+        python3-pip && \
+    rosdep install -y \
+      --from-paths \
+        src \
+      --ignore-src \
+      -r \
+    && rm -rf /var/lib/apt/lists/*
+
+# build overlay source
+COPY --from=cacher $OVERLAY_WS/src ./src
+
+# install package dependencies
+RUN find ./ -name "requirements.txt" | \
+      xargs -I '{}' pip3 install -r '{}'
+
+RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
+    colcon build
+
+# source entrypoint setup
+ENV OVERLAY_WS $OVERLAY_WS
+RUN sed --in-place --expression \
+      '$isource "$OVERLAY_WS/install/setup.bash"' \
+      /ros_entrypoint.sh
+#+END_SRC
+
+#+BEGIN_SRC text :tangle COLCON_IGNORE :exports none :noweb yes
+#+END_SRC
+
+#+BEGIN_SRC python :tangle pi/pi_setup.py :exports none :noweb yes
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+
+import os
+import click
+import subprocess
+from pathlib import Path
+
+class PiSetup(object):
+
+    def __init__(self,dry_run,*args,**kwargs):
+        self.dry_run = dry_run
+        self.root_name = '.metadata/pi/root'
+        self.path = Path(self.root_name)
+
+    def _output(self,args):
+        print(" ".join(args))
+        if not self.dry_run:
+            subprocess.run(args)
+
+    def for_every_file(self,cmd_prefix,include_rel_path):
+        for child in self.path.rglob('*'):
+            if child.is_file():
+                cmd = []
+                cmd.extend(cmd_prefix)
+                if include_rel_path:
+                    cmd.append(str(child))
+                abs_path = '/' / child.relative_to(self.root_name)
+                cmd.append(str(abs_path))
+                self._output(cmd)
+
+    def install(self):
+        self.for_every_file(['sudo', 'cp'],include_rel_path=True)
+
+    def uninstall(self):
+        self.for_every_file(['sudo', 'rm'],include_rel_path=False)
+
+@click.group()
+@click.option('-d','--dry-run', is_flag=True)
+@click.pass_context
+def cli(ctx,dry_run):
+    if dry_run:
+        click.echo('Dry Run')
+
+    pi_setup = PiSetup(dry_run)
+
+    ctx.ensure_object(dict)
+    ctx.obj['PI_SETUP'] = pi_setup
+
+@cli.command()
+@click.pass_context
+def install(ctx):
+    click.echo('Installing')
+    ctx.obj['PI_SETUP'].install()
+
+@cli.command()
+@click.pass_context
+def uninstall(ctx):
+    click.echo('Uninstalling')
+    ctx.obj['PI_SETUP'].uninstall()
+
+# -----------------------------------------------------------------------------------------
+if __name__ == '__main__':
+    cli(obj={})
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "pi/root/etc/systemd/system/weigher-attached@.service" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+[Unit]
+Description=Weigher attached
+After=docker.service
+
+[Service]
+User=weigher
+Group=weigher
+WorkingDirectory=~
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/local/bin/find_device_then_run.py
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "pi/root/etc/udev/rules.d/50-ft232.rules" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+# Original FT232/FT245 VID:PID
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1", ENV{ID_MM_PORT_IGNORE}="1"
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "pi/root/etc/udev/rules.d/99-weigher.rules" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+KERNEL=="ttyUSB*", TAG+="systemd", ENV{SYSTEMD_WANTS}="weigher-attached@00.service"
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "pi/root/usr/local/bin/find_device_then_run.py" "no")
+#+BEGIN_SRC python :exports none :noweb yes
+#!/usr/bin/env python3
+
+# This file is generated automatically from metadata
+# File edits may be overwritten!
+
+import os
+import click
+import docker
+from pathlib import Path
+import filelock
+
+lock_path = 'docker_controller.lock'
+lock = filelock.FileLock(lock_path, timeout=1)
+
+class DockerController(object):
+
+    def __init__(self,dry_run,*args,**kwargs):
+        self.dry_run = dry_run
+        self.client = docker.from_env()
+
+    def _run(self,**kwargs):
+        if not self.dry_run:
+            self.client.containers.run(**kwargs)
+        else:
+            for key,value in kwargs.items():
+                print('docker run')
+                print(key,value)
+
+    def stop_all(self):
+        for container in self.client.containers.list():
+            if not self.dry_run:
+                container.stop()
+            else:
+                print('docker stop {0}'.format(container.name))
+
+    def run(self):
+        image = '<<docker-image-name>>'
+        command = ['ros2','launch','<<weigher-package>>','<<weigher-launch-file>>']
+        detach = True
+        devs = sorted(Path('/dev').glob('ttyUSB*'))
+        devices = ['{0}:{0}'.format(dev) for dev in devs]
+        network_mode = 'host'
+        pid_mode = 'host'
+        restart_policy = {'Name':'on-failure', "MaximumRetryCount": 5}
+        volumes = {'/dev':{'bind':'/dev'}}
+        self._run(image=image,
+                  command=command,
+                  detach=detach,
+                  devices=devices,
+                  network_mode=network_mode,
+                  pid_mode=pid_mode,
+                  restart_policy=restart_policy,
+                  volumes=volumes)
+
+@click.command()
+@click.option('-d','--dry-run', is_flag=True)
+def cli(dry_run):
+    try:
+        with lock.acquire(timeout=1):
+            if dry_run:
+                print('Dry Run')
+            docker_controller = DockerController(dry_run)
+            docker_controller.stop_all()
+            docker_controller.run()
+    except filelock.Timeout:
+        print('Another instance of find_device_then_run currently holds the lock')
+
+# -----------------------------------------------------------------------------------------
+if __name__ == '__main__':
+    cli()
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "../AUTHORS" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+<<author>>
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "../codemeta.json" "no")
+#+BEGIN_SRC js :exports none :noweb yes
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "license": "https://spdx.org/licenses/<<license>>",
+    "codeRepository": "<<repository-url>>",
+    "dateCreated": "<<creation-date>>",
+    "dateModified": "<<release-date>>",
+    "name": "<<repository-name>>",
+    "version": "<<version>>",
+    "description": "<<description>>",
+    "programmingLanguage": [
+        "<<programming-language>>"
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "givenName": "<<author-given-name>>",
+            "familyName": "<<author-family-name>>",
+            "email": "<<email>>",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "<<affiliation>>"
+            }
+        }
+    ]
+}
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "../weigher_interfaces/msg/Weight.msg" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+<<weight-message>>
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "../weigher_interfaces/msg/WeightArray.msg" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+<<weight-array-message>>
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "../weigher_interfaces/srv/Tare.srv")
+#+BEGIN_SRC text :exports none :noweb yes
+<<tare-service-file>>
+#+END_SRC
+
+#+NAME: license-text
+#+BEGIN_SRC text :exports none :noweb yes
+Janelia Open-Source Software (3-clause BSD License)
+
+Copyright <<copyright>>
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors
+may be used to endorse or promote products derived from this software without
+specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#+END_SRC
+
+#+BEGIN_SRC text :tangle LICENSE :exports none :noweb yes
+<<license-text>>
+#+END_SRC
+
+#+HEADER: :tangle (if tangle-external-files "../LICENSE" "no")
+#+BEGIN_SRC text :exports none :noweb yes
+<<license-text>>
+#+END_SRC
+
+;; Local Variables:
+;; eval: (setq after-save-hook nil)
+;; eval: (setq org-confirm-babel-evaluate nil)
+;; eval: (setq tangle-external-files nil)
+;; eval: (setq python-package-dir "")
+;; End:
