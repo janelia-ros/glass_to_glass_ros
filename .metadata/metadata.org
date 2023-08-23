@@ -532,6 +532,10 @@ weigher_interfaces.srv.Tare_Response(stamp=builtin_interfaces.msg.Time(sec=16764
 
 * Setup
 
+** Arduino
+
+Download Arduino IDE [[https://www.arduino.cc/en/software]]
+
 ** Subscriber
 
 *** Docker
